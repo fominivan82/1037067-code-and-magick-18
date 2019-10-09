@@ -1,5 +1,5 @@
 'use strict';
-
+var OBJECTS = 4;
 var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var WIZARD_COATCOLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
@@ -17,34 +17,20 @@ var wisardRandom = function wisardRandElement(random) {
     var rand = Math.floor(Math.random() * random.length);
     return random[rand];
 };
+var indexObjects = Array.from(Array(OBJECTS).keys());
+var wizards = [];
 
-var wizards = [
-  {
-    name: wisardRandom(WIZARD_NAMES),
-    surname: wisardRandom(WIZARD_SURNAMES),
-    coatColor: wisardRandom(WIZARD_COATCOLORS),
-    eyesColor: wisardRandom(WIZARD_EYESCOLORS)
-  },
-  {
-    name: wisardRandom(WIZARD_NAMES),
-    surname: wisardRandom(WIZARD_SURNAMES),
-    coatColor: wisardRandom(WIZARD_COATCOLORS),
-    eyesColor: wisardRandom(WIZARD_EYESCOLORS)
-  },
-  {
-    name: wisardRandom(WIZARD_NAMES),
-    surname: wisardRandom(WIZARD_SURNAMES),
-    coatColor: wisardRandom(WIZARD_COATCOLORS),
-    eyesColor: wisardRandom(WIZARD_EYESCOLORS)
-  },
-  {
-    name: wisardRandom(WIZARD_NAMES),
-    surname: wisardRandom(WIZARD_SURNAMES),
-    coatColor: wisardRandom(WIZARD_COATCOLORS),
-    eyesColor: wisardRandom(WIZARD_EYESCOLORS)
-  }
-];
+indexObjects.forEach(function (j, i) {
 
+  wizards[i] = {
+    name: wisardRandom(WIZARD_NAMES),
+    surname: wisardRandom(WIZARD_SURNAMES),
+    coatColor: wisardRandom(WIZARD_COATCOLORS),
+    eyesColor: wisardRandom(WIZARD_EYESCOLORS)
+  };
+  wizards.push(wizards[i]);
+});
+wizards.pop();
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
