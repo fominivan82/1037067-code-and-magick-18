@@ -14,8 +14,8 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
 var wisardRandom = function wisardRandElement(random) {
-    var rand = Math.floor(Math.random() * random.length);
-    return random[rand];
+  var rand = Math.floor(Math.random() * random.length);
+  return random[rand];
 };
 var indexObjects = Array.from(Array(OBJECTS).keys());
 var wizards = [];
@@ -40,7 +40,7 @@ var renderWizard = function (wizard) {
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
   return wizardElement;
-}
+};
 
 var fragment = document.createDocumentFragment();
 wizards.forEach(function (j, i) {
