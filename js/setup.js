@@ -76,35 +76,35 @@ var closePopup = function () {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-setupOpen.addEventListener ('click', function() {
+setupOpen.addEventListener('click', function () {
   openPopup();
 });
 
-setupOpen.addEventListener ('keydown', function(evt) {
+setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
 
-setupClose.addEventListener ('click', function() {
+setupClose.addEventListener('click', function () {
   closePopup();
 });
 
-setupClose.addEventListener ('keydown', function(evt) {
+setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
   }
 });
 
-wizardCoat.addEventListener ('click', function() {
+wizardCoat.addEventListener('click', function () {
   wizardCoat.style.fill = wisardRandom(WIZARD_COATCOLORS);
 });
 
-wizardEyes.addEventListener ('click', function() {
+wizardEyes.addEventListener('click', function () {
   wizardEyes.style.fill = wisardRandom(WIZARD_EYESCOLORS);
 });
 
-wizardFireball.addEventListener ('click', function() {
+wizardFireball.addEventListener('click', function () {
   var fireColor = wisardRandom(WIZARD_FIREBALL);
   wizardFireball.style.background = fireColor;
   fireballColor.value = fireColor;
