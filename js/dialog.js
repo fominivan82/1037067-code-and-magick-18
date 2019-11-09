@@ -17,7 +17,7 @@
 
   var onPopupEscPress = function (evt) {
     if (evt.keyCode === ESC_KEYCODE && evt.target !== wizardName) {
-      closePopup();
+      window.closePopup();
     }
   };
 
@@ -25,13 +25,9 @@
     window.util.userDialog.classList.remove('hidden');
     window.util.userDialog.removeAttribute('style');
     document.addEventListener('keydown', onPopupEscPress);
-    var setupSimilarItem = document.querySelectorAll('.setup-similar-item');
-    if (setupSimilarItem.length < window.util.QUANTITY_MAGES) {
-      window.renderWizards();
-    }
   };
 
-  var closePopup = function () {
+  window.closePopup = function () {
     window.util.userDialog.classList.add('hidden');
     document.removeEventListener('keydown', onPopupEscPress);
   };
@@ -92,12 +88,12 @@
   });
 
   setupClose.addEventListener('click', function () {
-    closePopup();
+    window.closePopup();
   });
 
   setupClose.addEventListener('keydown', function (evt) {
     if (evt.keyCode === ENTER_KEYCODE) {
-      closePopup();
+      window.closePopup();
     }
   });
 
